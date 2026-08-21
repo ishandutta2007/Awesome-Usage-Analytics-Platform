@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a">
+        <animate attributeName="stop-color" values="#0a0e1a;#0f172a;#091326;#0a0e1a" dur="12s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#111c38">
+        <animate attributeName="stop-color" values="#111c38;#182a4d;#13233f;#111c38" dur="12s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#060913">
+        <animate attributeName="stop-color" values="#060913;#0d1527;#080d1a;#060913" dur="12s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <!-- Accent Gradients -->
+    <linearGradient id="cyanPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+
+    <linearGradient id="glowLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <linearGradient id="chartGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.035)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.08); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -1000; }
+    }
+    @keyframes barRise {
+      0%, 100% { transform: scaleY(0.7); }
+      50% { transform: scaleY(1); }
+    }
+    .floating { animation: float 6s ease-in-out infinite; }
+    .pulse-glow { animation: pulse 4s ease-in-out infinite; transform-origin: center; }
+    .stream-line { stroke-dasharray: 8 12; animation: dash 20s linear infinite; }
+    .bar-anim-1 { transform-origin: bottom; animation: barRise 4s ease-in-out infinite; }
+    .bar-anim-2 { transform-origin: bottom; animation: barRise 5s ease-in-out infinite 0.5s; }
+    .bar-anim-3 { transform-origin: bottom; animation: barRise 4.5s ease-in-out infinite 1s; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)"/>
+  <rect width="1200" height="360" rx="16" fill="url(#grid)"/>
+
+  <!-- Glowing background orbs -->
+  <circle cx="200" cy="180" r="160" fill="#38bdf8" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="1000" cy="140" r="180" fill="#a855f7" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="600" cy="300" r="120" fill="#6366f1" opacity="0.06" filter="url(#glow)"/>
+
+  <!-- Analytics Chart Graphic (Right side) -->
+  <g opacity="0.85" transform="translate(740, 50)">
+    <!-- Chart Grid -->
+    <line x1="0" y1="230" x2="400" y2="230" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+    <line x1="0" y1="170" x2="400" y2="170" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="0" y1="110" x2="400" y2="110" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="0" y1="50" x2="400" y2="50" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 4"/>
+
+    <!-- Bar Charts Background -->
+    <rect x="25" y="140" width="22" height="90" rx="4" fill="rgba(56, 189, 248, 0.2)" class="bar-anim-1"/>
+    <rect x="75" y="100" width="22" height="130" rx="4" fill="rgba(99, 102, 241, 0.2)" class="bar-anim-2"/>
+    <rect x="125" y="70" width="22" height="160" rx="4" fill="rgba(168, 85, 247, 0.25)" class="bar-anim-3"/>
+    <rect x="175" y="110" width="22" height="120" rx="4" fill="rgba(56, 189, 248, 0.2)" class="bar-anim-1"/>
+    <rect x="225" y="60" width="22" height="170" rx="4" fill="rgba(99, 102, 241, 0.3)" class="bar-anim-2"/>
+    <rect x="275" y="40" width="22" height="190" rx="4" fill="rgba(168, 85, 247, 0.35)" class="bar-anim-3"/>
+    <rect x="325" y="20" width="22" height="210" rx="4" fill="rgba(56, 189, 248, 0.4)" class="bar-anim-1"/>
+
+    <!-- Area Chart 2 (Purple) -->
+    <path d="M 0 190 Q 70 160 140 175 T 280 90 T 400 60 L 400 230 L 0 230 Z" fill="url(#chartGrad2)"/>
+    <path d="M 0 190 Q 70 160 140 175 T 280 90 T 400 60" fill="none" stroke="#c084fc" stroke-width="2.5" opacity="0.8"/>
+
+    <!-- Area Chart 1 (Cyan/Blue Wave with animation) -->
+    <path d="M 0 160 Q 60 120 130 135 T 260 65 T 400 30 L 400 230 L 0 230 Z" fill="url(#chartGrad)"/>
+    <path d="M 0 160 Q 60 120 130 135 T 260 65 T 400 30" fill="none" stroke="#38bdf8" stroke-width="3.5" filter="url(#softGlow)"/>
+
+    <!-- Data Points on Curve -->
+    <circle cx="130" cy="135" r="5" fill="#38bdf8" filter="url(#softGlow)">
+      <animate attributeName="r" values="5;7;5" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="260" cy="65" r="6" fill="#818cf8" filter="url(#softGlow)">
+      <animate attributeName="r" values="6;8;6" dur="3s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="30" r="7" fill="#c084fc" filter="url(#glow)">
+      <animate attributeName="r" values="7;10;7" dur="3s" begin="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Flow / Stream Connecting Lines -->
+  <path d="M 80 290 C 300 290, 450 320, 1120 320" fill="none" stroke="url(#glowLineGrad)" stroke-width="2" class="stream-line"/>
+  <path d="M 80 310 C 350 310, 550 280, 1120 280" fill="none" stroke="url(#glowLineGrad)" stroke-width="1.5" class="stream-line" opacity="0.6"/>
+
+  <!-- Left Content / Typography -->
+  <g transform="translate(80, 0)">
+    <!-- Badge / Tag -->
+    <g transform="translate(0, 52)">
+      <rect width="250" height="28" rx="14" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1"/>
+      <circle cx="14" cy="14" r="5" fill="#38bdf8">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="28" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#38bdf8" letter-spacing="0.5">CURATED AWESOME LIST</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="128" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="38" font-weight="800" fill="#ffffff" letter-spacing="-0.5">
+      Awesome Usage Analytics
+    </text>
+    <text x="0" y="172" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="38" font-weight="800" fill="url(#cyanPurple)" letter-spacing="-0.5">
+      &amp; Product Intelligence Platform
+    </text>
+
+    <!-- Subtitle / Description -->
+    <text x="0" y="214" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#94a3b8">
+      Top SaaS Platforms &amp; Open-Source Telemetry, Funnels, Cohorts,
+    </text>
+    <text x="0" y="238" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#94a3b8">
+      Feature Adoption, Session Replay &amp; Behavioral Data Infrastructure.
+    </text>
+
+    <!-- Feature Pills -->
+    <g transform="translate(0, 270)">
+      <rect x="0" y="0" width="105" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <text x="12" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#cbd5e1">📊 Funnels</text>
+
+      <rect x="115" y="0" width="105" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <text x="127" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#cbd5e1">👥 Cohorts</text>
+
+      <rect x="230" y="0" width="115" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <text x="242" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#cbd5e1">🔁 Retention</text>
+
+      <rect x="355" y="0" width="125" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <text x="367" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#cbd5e1">🎬 Replays</text>
+
+      <rect x="490" y="0" width="135" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <text x="502" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#cbd5e1">🚀 Open Source</text>
+    </g>
+  </g>
+</svg>
